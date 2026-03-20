@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Security.Cryptography;
 namespace calc
 {
     public class Program
@@ -33,6 +34,14 @@ namespace calc
             }
             else if (operation == "/")
             {
+                if (SecondNumber == 0)
+                {
+                    Console.WriteLine("Error: division by zero is not allowed.");
+                    Console.WriteLine("thank you for using my calc");
+                    Console.WriteLine("press any key to close...");
+                    Console.ReadKey();
+                    return;
+                }
                 output = (FirstNumber / SecondNumber).ToString();
             }
             Console.WriteLine($"the answer is {output}!");
